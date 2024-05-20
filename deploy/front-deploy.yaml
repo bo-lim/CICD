@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: frontend-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: codingalice/frontend-pod:3.0
+        env:
+        - name: API_URL
+          value: "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local"
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: 300Mi
+            cpu: "300m"
+          limits:
+            memory: 1Gi
+            cpu: "1000m"
+
