@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-front
+  namespace: frontend-ns
+spec:
+  hard:
+    limits.cpu: 2
+    limits.memory: 2Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-job
+  namespace: job-ns
+spec:
+  hard:
+    limits.cpu: 1
+    limits.memory: 1Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-member
+  namespace: member-ns
+spec:
+  hard:
+    limits.cpu: 1
+    limits.memory: 1Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-apply
+  namespace: apply-ns
+spec:
+  hard:
+    limits.cpu: 1
+    limits.memory: 1Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-db
+  namespace: db-ns
+spec:
+  hard:
+    limits.cpu: 1
+    limits.memory: 1Gi
+
