@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: headless-to-job
+  namespace: ingress-nginx
+spec:
+  type: ExternalName
+  externalName: job-svc.job-ns.svc.cluster.local
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80

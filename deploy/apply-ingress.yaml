@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: headless-to-apply
+  namespace: ingress-nginx
+spec:
+  type: ExternalName
+  externalName: apply-svc.apply-ns.svc.cluster.local
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80

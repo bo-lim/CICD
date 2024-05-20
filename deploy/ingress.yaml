@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend-ingress
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /api/job(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: headless-to-job
+            port:
+              number: 80
+      - path: /api/member(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: headless-to-member
+            port:
+              number: 80
+      - path: /api/apply(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: headless-to-apply
+            port:
+              number: 80
+
