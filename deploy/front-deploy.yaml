@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: harbor.minho.io/team5/kube-employment-frontend:1.0
+        image: harbor.minho.io/team5/kube-employment-frontend:9
         env:
         - name: API_URL
           value: "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local"
